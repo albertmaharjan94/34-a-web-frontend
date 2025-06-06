@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
+import LoginForm from '../components/auth/LoginForm';
 
 export default function Login() {
     let navigate = useNavigate()
@@ -21,6 +22,11 @@ export default function Login() {
                     eventChangePage(event)
                 }
             }>Event based with Callback</button>
+
+
+            <div>
+                <LoginForm/>
+            </div>
         </div>
     )
 }
