@@ -9,7 +9,9 @@ export default function Login() {
         event.preventDefault();
         navigate("/register")
     }
-
+    // check user if user in state return
+    // html with "User already logged in"
+    
     return (
         <div>
             <div>Login Page</div>
