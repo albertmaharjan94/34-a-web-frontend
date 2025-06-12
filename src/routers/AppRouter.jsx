@@ -7,6 +7,8 @@ import MainLayout from '../layouts/MainLayout'
 import StateManage from '../pages/StateManage'
 import GuestRoute from './GuestRoute'
 import NormalUserRoute from './NormalUserRoute'
+import UserManagement from '../pages/admin/UserManagement'
+import ProductManagement from '../pages/admin/ProductManagement'
 
 export default function AppRouter() {
   return (
@@ -41,6 +43,12 @@ export default function AppRouter() {
           <Route path='cart' element={<>My Cart</>} ></Route>
           <Route path='order' element={<>My Order</>} ></Route>
           <Route path='*' element={<>404 Not Found</>} ></Route>
+        </Route>
+        
+        <Route path='/admin/*'>
+            <Route path='user' element={<UserManagement/>}></Route>
+            
+            <Route path='product' element={<ProductManagement/>}></Route>
         </Route>
 
       </Routes>
