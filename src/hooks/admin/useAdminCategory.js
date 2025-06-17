@@ -3,7 +3,8 @@ import {
     getAllCategoryService,
     createOneCategoryService, 
     getOneCategoryService,
-    updateOneCategoryService
+    updateOneCategoryService,
+    deleteOneCategoryService
 } from
     "../../services/admin/categorySerivce";
 import { toast } from "react-toastify";
@@ -69,6 +70,23 @@ export const useUpdateOneCategory = () => {
             },
             onError: (err)=> {
                 toast.error(err.message || "Update failed")
+            }
+        }
+    )
+}
+
+export const useDeleteOneCategory = () => {
+    const queryClient = useQueryClient()
+    return useMutation(
+        {
+            mutationFn: deleteOneCategoryService,
+            mutationKey: ["admin_category_delete"],
+            onSuccess: () => {
+                toast.success("Deleted")
+                queryClient.invalidateQueries(["admin_category"])
+            },
+            onError: (err)=> {
+                toast.error(err.message || "Delete Failed")
             }
         }
     )
